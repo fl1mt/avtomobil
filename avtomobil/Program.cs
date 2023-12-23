@@ -19,7 +19,6 @@ namespace avtomobil
         void Init()
         {
             OpenMenu();
-            
         }
 
         private void OpenMenu()
@@ -74,8 +73,10 @@ namespace avtomobil
         private void CreateCar()
         {
             Console.Clear();
-            Auto car = new Auto(CheckCorrectInfoAnswer("Введите название машины: ", "Введите название машины, а не только цифры: "), CheckCorrectInfoAnswer("Введите модель машины: ", 
-                "Введите название модели, а не только цифры."), CheckCorrectInfoAnswer("Введите цвет машины: ", "Введите название цвета, а не цифры."), RandomCarNumber());
+            Auto car = new Auto(CheckCorrectInfoAnswer("Введите название машины: ", "Введите название машины, а не только цифры: "), 
+                CheckCorrectInfoAnswer("Введите модель машины: ", 
+                "Введите название модели, а не только цифры."), 
+                CheckCorrectInfoAnswer("Введите цвет машины: ", "Введите название цвета, а не цифры."), RandomCarNumber());
             cars.Add(car);
             Console.WriteLine("\n" + car.GetCarInfo());
             Console.ForegroundColor = ConsoleColor.Green;
@@ -242,7 +243,8 @@ namespace avtomobil
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             if (parked == false) return String.Format($"Бренд: {brand}\nМодель: {model}\nЦвет: {color}\nНомер машины: {number}\nСтатус: Нет на парковке.");
-            else return String.Format($"Бренд: {brand}\nМодель: {model}\nЦвет: {color}\nНомер машины: {number}\nВремя прибытия: {arrivalTime}\nСтатус: На парковке.\nПарковка: {parking.name}, {idPlace} место.");
+            else return String.Format($"Бренд: {brand}\nМодель: {model}\nЦвет: {color}\nНомер машины: {number}\nВремя прибытия: {arrivalTime}\nСтатус: На парковке." +
+                $"\nПарковка: {parking.name}, {idPlace} место.");
         }
 
         public void ParkTheCar(Parking _parking, int _place)
